@@ -8,12 +8,20 @@ public class Manager : MonoBehaviour {
 
 	public GUIText Text_time;
 
+	public GameObject ClearGUI;
+	public GameObject FailGUI;
+
 	void OnTriggerEnter(Collider Get){
 				if (Get.collider.tag == "Box") {
 						Count += 1;
 				}
-				if (Count >= 16) {
+		if (Get.collider.tag == "Player" && End == false) {
 						End = true;
+			FailGUI.SetActive(true);
+				}
+				if (Count >= 16 && End == false) {
+						End = true;
+			ClearGUI.SetActive(true);
 				}
 		}
 
@@ -25,4 +33,3 @@ public class Manager : MonoBehaviour {
 		Text_time.text = _time.ToString ();
 	}
 }
-
