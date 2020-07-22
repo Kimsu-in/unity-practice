@@ -6,6 +6,8 @@ public class Manager : MonoBehaviour {
 	public float _time;
 	bool End;
 
+	public GUIText Text_time;
+
 	void OnTriggerEnter(Collider Get){
 				if (Get.collider.tag == "Box") {
 						Count += 1;
@@ -20,5 +22,7 @@ public class Manager : MonoBehaviour {
 		if (End == false) {
 						_time += Time.deltaTime;
 				}
+		Text_time.text = _time.ToString ();
 	}
 }
+
